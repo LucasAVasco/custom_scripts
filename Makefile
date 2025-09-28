@@ -49,6 +49,13 @@ run:
 	$(if ${need_show_cmd}, @echo Equivalent command: make -C "'$(shell pwd)'" WORKING_DIR="'${WORKING_DIR}'" SCRIPT="'${SCRIPT}'")
 
 
+# Shows the base scripts directory
+#
+# May be used in automation scripts
+get-root-dir:
+	@pwd
+
+
 # Run a new instance of the specified shell in the scripts base directory
 #
 # The user can change the shell with by setting the 'CD_SHELL' variable
