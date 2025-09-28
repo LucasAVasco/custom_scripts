@@ -22,7 +22,7 @@
 
 
 WORKING_DIR ?= $(shell pwd)
-SELECTOR_CMD ?= fzf
+SELECTOR_CMD ?= fzf --preview="bat --color=always '{1}'"
 CD_SHELL ?= /bin/bash
 
 
