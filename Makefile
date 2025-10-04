@@ -45,7 +45,7 @@ run:
 
 	$(if ${SCRIPT}, , $(error Does not provided SCRIPT))
 
-	cd "${WORKING_DIR}" && WORKING_DIR="${WORKING_DIR}" "${g_base_dir}/scripts/${SCRIPT}"
+	cd "${WORKING_DIR}" && WORKING_DIR="${WORKING_DIR}" REPO_DIR="${g_base_dir}/" "${g_base_dir}/scripts/${SCRIPT}"
 	$(if ${need_show_cmd}, @echo Equivalent command: make -C "'$(shell pwd)'" WORKING_DIR="'${WORKING_DIR}'" SCRIPT="'${SCRIPT}'")
 
 
