@@ -26,16 +26,18 @@ there_is_tmp_remote() {
 
 # Get the temporary branch names in the local repository separated by spaces
 get_local_tmp_branch_name() {
+	# Local references have the branch name after the 2rd slash (3rd field).
 	# Assigns the names to a local array to remove new and empty lines
-	local branches=($(git branch --format='%(refname)' | grep "$tmp_branch_regex" | cut -d'/' -f3))
+	local branches=($(git branch --format='%(refname)' | cut -d'/' -f3 | grep "$tmp_branch_regex"))
 	echo ${branches[@]}
 }
 
 
 # Get the temporary branch names in the remotes separated by spaces. Does not shows the local temporary branches
 get_remote_tmp_branch_name() {
+	# Remote references have the branch name after the 3rd slash (4th field).
 	# Assigns the names to a local array to remove new and empty lines
-	local branches=($(git branch --format='%(refname)' --all | grep "$tmp_branch_regex" | cut -d'/' -f4))
+	local branches=($(git branch --format='%(refname)' --all | cut -d'/' -f4 | grep "$tmp_branch_regex"))
 	echo ${branches[@]}
 }
 
