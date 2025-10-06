@@ -18,7 +18,7 @@ send_to_sync_folder() {
 	local file="$1"
 
 	# The `file` variable should be the file or folder to transfer relative to the user home directory
-	if [[ "${file[0]}" != '/' ]]; then
+	if [[ "${file:0:1}" != '/' ]]; then
 		file="$PWD/$file"
 	fi
 	file=$(realpath --relative-to="$HOME" "$file")
