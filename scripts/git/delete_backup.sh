@@ -39,5 +39,5 @@ while [[ true ]]; do
 done
 
 # Checkout to the main branch and delete the temporary branch
-git checkout main
+git checkout main || git checkout master
 git branch --delete "$current_branch"
