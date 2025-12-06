@@ -16,9 +16,9 @@ source "$REPO_DIR/libs/tui.sh"
 tmp_branches_name=($(get_local_tmp_branch_name))
 tmp_branch="${tmp_branches_name[0]}"
 
-# Creates a temporary branch if there are not one
+# Only creates a temporary branch if there are not one
 if [[ "$tmp_branch" != '' ]]; then
-	return
+	exit 0
 fi
 
 # Try to use the same name of a temporary branch in the remote list
